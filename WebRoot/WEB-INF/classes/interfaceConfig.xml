@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<interfaces><!-- 服务端接口 -->
+	
+	<interface>
+			<taskType>1</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行接口测试</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WarmLineServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>demo</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+	</interface>
+		<!-- 用户登录基本设置 -->
+		<interface>
+			<taskType>2</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行注册用户</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>phoneLogin</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="country" required="1" dataType="String">国家</param>
+				<param name="areaCode" required="1" dataType="String">区号</param>
+				<param name="phone" required="1" dataType="String">手机号</param>
+				<param name="verificationCode" required="1" dataType="String">验证码</param>
+			</params>
+			<!-- 0 全部  1 已支付待接单  2  服务中 3待评价 4 完成 5取消订单 -->
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+
+		<interface>
+			<taskType>3</taskType><!-- 任务类型 不能重复  -->
+			<taskName>注册发送验证码</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>sendVerificationCode</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="phone" required="1" dataType="String">手机号</param>
+				<param name="areaCode" required="1" dataType="String">区号</param>
+				<param name="type" required="1" dataType="String">类型</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>4</taskType><!-- 任务类型 不能重复  -->
+			<taskName>确定密码设置</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myProfessional</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="password" required="1" dataType="String">密码</param>
+				<param name="confirmPassword" required="1" dataType="String">确定密码</param>
+				<param name="appType" required="1" dataType="String">手机类型</param>
+				<param name="clientid" required="1" dataType="String">客户端id</param>
+				<param name="devicetoken" required="1" dataType="String">手机端devicetoken</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>5</taskType><!-- 任务类型 不能重复  -->
+			<taskName>用户登录</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>doLogin</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="clientid" required="1" dataType="String">客户端id</param>
+				<param name="appType" required="1" dataType="String">平台标识</param>
+				<param name="username" required="1" dataType="String">用户名</param>
+				<param name="password" required="1" dataType="String">密码</param>
+				<param name="devicetoken" required="1" dataType="String">手机端devicetoken</param>
+				<param name="areaCode" required="1" dataType="String">区号</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>6</taskType><!-- 任务类型 不能重复  -->
+			<taskName>重置密码</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>updatePassword</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="oldPass" required="1" dataType="String">原密码</param>
+				<param name="newPass" required="1" dataType="String">新密码</param>
+				<param name="repatePass" required="1" dataType="String">重复密码</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>7</taskType><!-- 任务类型 不能重复  -->
+			<taskName>用户退出</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>exit</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+	
+		<!-- <interface>
+			<taskType>8</taskType>任务类型 不能重复 
+			<taskName>头像上传</taskName>任务名称 描述信息
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className>接口任务类 需要继承BaseInterface
+			<methodName>herdPhono</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status>启用状态 0不启用,1启用
+			<params>url参数
+				required:1-必填,dataType:参数类型Long/Integer,String时不使用
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="byteString" required="1" dataType="String">文件字节流</param>
+				
+			</params>
+			<fields>
+				<field name="sendType">0</field>
+			</fields>
+		</interface> -->
+		
+		<interface>
+			<taskType>9</taskType><!-- 任务类型 不能重复  -->
+			<taskName>提交认证</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>mySubmitAuthentication</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="nationality"  dataType="String">国籍</param>
+				<param name="motherTongue"  dataType="String">母语</param>
+				<param name="secondLanguage"  dataType="String">第二语言</param>
+				<param name="realname" required="1" dataType="String">真是用户</param>
+				<param name="documentType" required="1" dataType="String">证件类型</param>
+				<param name="identificationNumber" required="1" dataType="String">证件号码</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>10</taskType><!-- 任务类型 不能重复  -->
+			<taskName>修改个人信息 加载修改信息</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myModifyInformation</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>11</taskType><!-- 任务类型 不能重复  -->
+			<taskName>保存修改个人信息</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myPreservation</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<interface>
+			<taskType>12</taskType><!-- 任务类型 不能重复  -->
+			<taskName>个人资料</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myPersonal</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>13</taskType><!-- 任务类型 不能重复  -->
+			<taskName>个人资料求助者评价显示评论</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>mySeekHelpComment</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<!-- 我的首页 -->
+		<!-- 钱包 -->
+		
+		<interface>
+			<taskType>14</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的账户信息还有绑定情况</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myBalance</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+	 <interface>
+			<taskType>15</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的绑定支付宝</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myBindingAlipay</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="alipayAccount" required="1" dataType="String">支付宝账号</param>
+				<param name="realName" required="1" dataType="String">真实姓名</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface> 
+		
+		
+		<interface>
+			<taskType>16</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的收入</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myIncome</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>17</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的支出</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myExpenditure</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface> 
+		
+		
+		<interface>
+			<taskType>18</taskType><!-- 任务类型 不能重复  -->
+			<taskName>跳转到提现页面</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myWithdrawals</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<interface>
+			<taskType>19</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行确定提现</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>determinationCash</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="amout" required="1" dataType="String">提现金额</param>
+				<param name="withdrawalsType" required="1" dataType="String">提现类型</param>
+				<param name="accounts" required="1" dataType="String">提现帐号</param>
+				<!-- alipay 支付宝  weChat 微信  bank 银行卡 -->
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		<!-- 消息 -->
+		<interface>
+			<taskType>21</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行求助消息</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>seekHelpMessage</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="page" required="1" dataType="Integer">页数</param>
+				<param name="rows" required="1" dataType="Integer">条数</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>22</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行帮助消息</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>helpMessage</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+			<interface>
+			<taskType>23</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行系统消息查看</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>systemMessage</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+				<param name="phoneType" required="1" dataType="String">手机型号</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>27</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行紧急普通求助照片上传</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>urgentOrderPhoto</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>28</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行紧急订单</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>urgentOrder</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="photoId" required="1" dataType="String">照片id</param>
+				<param name="title" required="1" dataType="String">标题</param>
+				<param name="latitude"  dataType="String">纬度</param>
+				<param name="longitude"  dataType="String">经度</param>
+				<param name="category" required="1" dataType="String">类别</param>
+				<param name="price" required="1" dataType="String">价格</param>
+				<param name="territoryId"  dataType="String">区域id</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="stateTag" required="1" dataType="String">国家标识</param><!--stateTag 泰国：Thailand、中国：China-->
+				<param name="hotCityName" dataType="String">热门城市名字</param>
+				<param name="allopatryTag" dataType="String">是否异地发单</param>
+				<param name="location" dataType="String">订单详细地址</param>
+				
+				
+				
+			</params>
+			<fields>
+			<!-- alipay("支付宝"),
+				weChat("微信"),
+				wallet("钱包"),
+				bank("银行卡") -->
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<interface>
+			<taskType>29</taskType><!-- 任务类型 不能重复  -->
+			<taskName>普通订单发布校验</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>releaseOrdinaryOrder</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+		<!-- 待细细查看城市位置问题 -->
+			<taskType>30</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行普通订单</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>ordinaryOrder</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="title" required="1" dataType="String">标题</param>
+				<param name="latitude"  dataType="String">纬度</param>
+				<param name="longitude"  dataType="String">经度</param>
+				<param name="subtitle"  dataType="String">要求</param>
+				<param name="description" required="1" dataType="String">描述</param>
+				<param name="photosId" required="1" dataType="String">照片id</param>
+				<param name="category" required="1" dataType="String">分类</param>
+				<param name="price" required="1" dataType="String">价格</param>
+				<param name="startTime" dataType="Date">开始时间</param>
+				<param name="endTime" dataType="Date">结束时间</param>
+				<param name="territoryId"   dataType="String">区域id</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="stateTag" required="1" dataType="String">国家标识</param><!--stateTag 泰国：Thailand、中国：China-->
+				<param name="hotCityName" dataType="String">热门城市名字</param>
+				<param name="allopatryTag" dataType="String">是否异地发单</param>
+				<param name="location" dataType="String">订单详细地址</param>
+				<param name="orderPhone" required="1" dataType="String">订单联系电话</param>
+			</params>
+			<fields>
+			<!-- alipay("支付宝"),
+				weChat("微信"),
+				wallet("钱包"),
+				bank("银行卡") -->
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+
+		<!-- 订单首页展示 -->
+		<interface>
+			<taskType>31</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行首页列表展示</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WarmLineHomeServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>homePage</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid"  dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="page" required="1" dataType="Integer">页数</param>
+				<param name="rows" required="1" dataType="Integer">条数</param>
+				<param name="latitude" required="1" dataType="String">纬度</param>
+				<param name="longitude" required="1" dataType="String">经度</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>32</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行首页订单详情</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WarmLineHomeServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>orderDetails</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid"  dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="longitude" required="1" dataType="String">经度</param>
+				<param name="latitude" required="1" dataType="String">纬度</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>33</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行订单 点击帮助</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WarmLineHomeServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>applyHellp</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>34</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行我的求助订单</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>mySeekHelpOrder</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderType" required="1" dataType="Integer">订单状态</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+			</params>
+			<!-- 0 全部  1 已支付待接单  2  服务中 3待评价 4 完成 5取消订单 -->
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>35</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行我的订单详情</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>mySeekHelpOrderDetails</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderPosition" required="1" dataType="String">订单位置</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>36</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行我的选择接单人</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myChoiceConnect</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>37</taskType><!-- 任务类型 不能重复  -->
+			<taskName>暖行我的确定接单人</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>definiteReceiver</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="helpPeopleId" required="1" dataType="String">接单人id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>38</taskType><!-- 任务类型 不能重复  -->
+			<taskName>订单点击服务确定完成</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>definiteReceivers</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>39</taskType><!-- 任务类型 不能重复  -->
+			<taskName>订单点击去评价</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>evaluate</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+			
+		<interface>
+			<taskType>40</taskType><!-- 任务类型 不能重复  -->
+			<taskName>订单点击评价去提交</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>evaluateSubmit</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="commentStar" required="1" dataType="String">评论星数</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>41</taskType><!-- 任务类型 不能重复  -->
+			<taskName>APP微信密码支付</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WeChatPayServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>weChatAppPay</methodName>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<!-- <param name="deviceToken" required="1" dataType="String">设备标识</param> --><!-- deviceToken :Android、IOS-->
+				<param name="spbill_create_ip" required="1" dataType="String">客户端IP</param>
+				<param name="orderId" required="1" dataType="String">订单号</param>
+				<param name="uid" required="1" dataType="String">用户ID</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+			
+		<interface>
+			<taskType>42</taskType><!-- 任务类型 不能重复  -->
+			<taskName>支付宝App支付</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.AlipayServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>aliAppPay</methodName>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+			<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<!-- <param name="deviceToken" required="1" dataType="String">设备标识</param>deviceToken :Android、IOS -->
+				<param name="orderId" required="1" dataType="String">订单号</param>
+				<param name="uid" required="1" dataType="String">用户ID</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="remoteIp" required="1" dataType="String">移动端ip</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<!-- 补充我的首页 -->
+		
+		<interface>  <!-- 已配置 -->
+			<taskType>43</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的首页展示</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myPage</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>44</taskType><!-- 任务类型 不能重复  -->
+			<taskName>忘记密码</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>forgetPassword</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="phone" required="1" dataType="String">手机号</param>
+				<param name="verificationCode" required="1" dataType="String">验证码</param>
+				<param name="newPassword" required="1" dataType="String">新密码</param>
+				<param name="confirmPassword" required="1" dataType="String">确定密码</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<!-- <interface>   个性照片和 头像上传 现在都用servlet 方式上传的 没有接口   MyPersonalDataServlet
+			<taskType>45</taskType>任务类型 不能重复 
+			<taskName>个人个性照片上传</taskName>任务名称 描述信息
+			<className>ssb.warmline.business.service.businessprocessor.app.MyPersonalData</className>接口任务类 需要继承BaseInterface
+			<methodName>personalityPhoto</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status>启用状态 0不启用,1启用
+			<params>url参数
+				required:1-必填,dataType:参数类型Long/Integer,String时不使用
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<field name="sendType">0</field>
+			</fields>
+		</interface> -->
+		
+		<interface>
+			<taskType>46</taskType><!-- 任务类型 不能重复  -->
+			<taskName>点击订单取消订单</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>orderCancellation</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>47</taskType><!-- 任务类型 不能重复  -->
+			<taskName>我的点击支付宝</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyWalletServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myBindingAlipayNumber</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface> 
+		
+		<interface>
+			<taskType>48</taskType><!-- 任务类型 不能重复  -->    <!-- 未写 -->
+			<taskName>暖行我的帮助订单</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>myHelpOrderList</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderType" required="1" dataType="Integer">订单状态</param>
+				<param name="page" required="1" dataType="Integer">页</param>
+				<param name="rows" required="1" dataType="Integer">排</param>
+			</params>
+			<!-- 0 全部  1 待确定  2  服务中 3待评价 4 完成 5取消订单 -->
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<!-- 订单发布 -->
+		<interface>
+			<taskType>49</taskType><!-- 任务类型 不能重复  -->
+			<taskName>紧急订单发布校验</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>releaseUrgentOrder</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+
+		<interface>
+			<taskType>50</taskType><!-- 任务类型 不能重复  -->
+			<taskName>忘记密码发送验证码</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyLogoSignInServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>sendVerificationCodes</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="phone" required="1" dataType="String">手机号</param>
+				<param name="type" required="1" dataType="String">类型（注册：1;忘记密码：2）</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		<interface>
+			<taskType>51</taskType><!-- 任务类型 不能重复  -->
+			<taskName>选择分类</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WCategoryServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>categoryList</methodName>
+			<checkLogin>false</checkLogin>m
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="latitude"  dataType="String">经度</param>
+				<param name="longitude"  dataType="String">纬度</param>
+				<param name="territoryName"  dataType="String">区域名称</param>
+				<param name="stateTag" required="1" dataType="String">国家标识</param><!--stateTag 泰国：Thailand、中国：China-->
+				<param name="hontCityName"  dataType="String">热门城市</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>52</taskType><!-- 任务类型 不能重复  -->
+			<taskName>国家区号</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WTerritoryServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>phoneAreaCodes</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="page" required="1" dataType="Integer">页数</param>
+				<param name="rows" required="1" dataType="Integer">条数</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>53</taskType><!-- 任务类型 不能重复  -->
+			<taskName>电话号</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WTerritoryServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>phoneAreaCodes</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="page" required="1" dataType="Integer">页数</param>
+				<param name="rows" required="1" dataType="Integer">条数</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>54</taskType><!-- 任务类型 不能重复  -->
+			<taskName>打赏</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.GiveRewardProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>giveReward</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="remoteIp" required="1" dataType="String">登录设备ip</param>
+				<param name="payType" required="1" dataType="String">支付方式</param>
+				<param name="totalFee" required="1" dataType="String">打赏金额</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>55</taskType><!-- 任务类型 不能重复  -->
+			<taskName>泰国区域加载</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.UrgentOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>TGRegion</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>56</taskType><!-- 任务类型 不能重复  -->
+			<taskName>订单完成</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MyOrderServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>serviceCompletion</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="orderId" required="1" dataType="String">订单id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<interface>
+			<taskType>57</taskType><!-- 任务类型 不能重复  -->
+			<taskName>app版本更新</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>systemUpdate</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<!-- <param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param> -->
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>58</taskType><!-- 任务类型 不能重复  -->
+			<taskName>钱包支付</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WalletPayServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>walletPay</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="orderNumber" required="1" dataType="String">订单编号</param>
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>59</taskType><!-- 任务类型 不能重复  -->
+			<taskName>钱包打赏</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.GiveRewardProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>walletGiveReward</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="orderId" required="1" dataType="String">订单id</param>
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="totalFee" required="1" dataType="String">打赏金额</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>60</taskType><!-- 任务类型 不能重复  -->
+			<taskName>智能问答</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>intelligence</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+<!-- 				<param name="orderId" required="1" dataType="String">订单id</param> -->
+<!-- 				<param name="uid" required="1" dataType="String">用户id</param> -->
+<!-- 				<param name="token" required="1" dataType="String">登录令牌</param> -->
+<!-- 				<param name="totalFee" required="1" dataType="String">打赏金额</param> -->
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<interface>
+			<taskType>61</taskType><!-- 任务类型 不能重复  -->
+			<taskName>更改阅读状态</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>changeStatus</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="messageId" required="1" dataType="String">消息id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>62</taskType><!-- 任务类型 不能重复  -->
+			<taskName>首页阅读消息状态</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.MessageserviceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>readChangeStatus</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>63</taskType><!-- 任务类型 不能重复  -->
+			<taskName>泰国热门城市</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WTerritoryServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>thailandhotCity</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+				<param name="id" required="1" dataType="String">区域id</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		<interface>
+			<taskType>64</taskType><!-- 任务类型 不能重复  -->
+			<taskName>泰国城市分级加载</taskName><!-- 任务名称 描述信息 -->
+			<className>ssb.warmline.business.service.businessprocessor.app.WTerritoryServiceProcessor</className><!-- 接口任务类 需要继承BaseInterface -->
+			<methodName>hierarchyLoadCity</methodName>
+			<checkLogin>true</checkLogin>
+			<status>1</status><!-- 启用状态 0不启用,1启用 -->
+			<params><!-- url参数 -->
+				<!-- required:1-必填,dataType:参数类型Long/Integer,String时不使用 -->
+				<param name="territoryParentId" dataType="String">城市id</param>
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<!-- <field name="sendType">0</field> -->
+			</fields>
+		</interface>
+		
+		
+		<!-- <interface>
+			<taskType>65</taskType>任务类型 不能重复 
+			<taskName>异地发单获取经纬度</taskName>任务名称 描述信息
+			<className>ssb.warmline.business.service.businessprocessor.app.WTerritoryServiceProcessor</className>接口任务类 需要继承BaseInterface
+			<methodName>searchAdreess</methodName>
+			<checkLogin>false</checkLogin>
+			<status>1</status>启用状态 0不启用,1启用
+			<params>url参数
+				required:1-必填,dataType:参数类型Long/Integer,String时不使用
+				<param name="stateTag" required="1" dataType="String">国家标识</param>stateTag 泰国：Thailand、中国：China
+				<param name="adreess" required="1" dataType="String">地址信息</param>
+				<param name="uid" required="1" dataType="String">用户id</param>
+				<param name="token" required="1" dataType="String">登录令牌</param>
+			</params>
+			<fields>
+				<field name="sendType">0</field>
+			</fields>
+		</interface> -->
+	</interfaces>
+</root>

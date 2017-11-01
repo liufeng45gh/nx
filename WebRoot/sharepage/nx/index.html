@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name = "format-detection" content = "telephone=no">
+    <title></title>
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
+</head>
+<body style="background-color: #f8f8f8" >
+<div id="riskTest">
+    <div class="jq22-container">
+        <div class="title">
+            <p>{{category}}</p>
+        </div>
+        <div class="flexslider">
+            <ul class="slides">
+                <li v-for="item in photoList">
+                    <img v-bind:src="item.photo" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="details">
+        <div class="img">
+            <img v-bind:src="cardList.HeadPortrait" alt="">
+        </div>
+        <h3 v-if="cardList.certification = 1">{{cardList.userName}}<span>已实名</span></h3>
+        <h3  v-if="cardList.certification = 0">{{cardList.userName}}<span>未实名</span></h3>
+        <p><!-- <em class="distance">231km</em> --><em class="address" >{{cardList.state}}&nbsp;{{cardList.city}}</em></p>
+    </div>
+    <div class="content">
+        <h2>{{cardList.title}}</h2>
+        <h3>奖励: {{cardList.price}}元</h3>
+        <h3>时长：{{cardList.time}}</h3>
+        <div class="border-btm"></div>
+        <p>服务要求：{{cardList.subtitle}}</p>
+        <p>服务范围：{{cardList.state}}&nbsp;{{cardList.city}}</p>
+    </div>
+
+    <div class="content">
+        <h2>服务内容</h2>
+        <p>{{cardList.description}}</p>
+    </div>
+
+    <div class="content">
+        <div class="top">
+            <span>贡献榜</span>
+            <span>帮助 <em>{{cardList.helepCount}}</em> 次</span>
+            <span>求助 <em>{{cardList.issuerCount}}</em> 次</span>
+        </div>
+    </div>
+    <a class="button" :href="downLoad"><span>立即下载</span></a>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        setTimeout(function () {
+            $('.flexslider').flexslider({
+                directionNav: true,
+                pauseOnAction: false,
+                slideshowSpeed: 2000
+            });
+        },1000)
+    });
+
+    function getSearchString(key) {
+             // 获取URL中?之后的字符
+             var str = location.search;
+             str = str.substring(1,str.length);
+
+             // 以&分隔字符串，获得类似name=xiaoli这样的元素数组
+             var arr = str.split("&");
+             var obj = new Object();
+
+            // 将每一个数组元素以=分隔并赋给obj对象
+             for(var i = 0; i < arr.length; i++) {
+                  var tmp_arr = arr[i].split("=");
+                   obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+               }
+            return obj[key];
+         }
+     var uids= getSearchString("uid");
+     var tokens= getSearchString("token");
+     var longitudes= getSearchString("longitude");
+     var latitudes= getSearchString("latitude");
+     var orderIds= getSearchString("orderId");
+     var deviceTokens= getSearchString("deviceToken");
+    var hostPath=getURL();
+    var url =hostPath+'/sharePageOrderDetails.action';
+    
+    var vm =new Vue({
+        el:'#riskTest',
+        data:{
+            cardList:[],
+            photoList:[],
+            downLoad:'',
+            category:''
+        },
+        methods:{
+            cartView:function () {
+                var _this = this;
+                var listJson = {
+                    uid:uids,
+                    token:tokens,
+                    longitude:longitudes,
+                    latitude:latitudes,
+                    orderId:orderIds,
+                    deviceToken:deviceTokens
+                };
+                _this.$http.jsonp(url,listJson).then(function (res) {
+                    _this.cardList = res.data.orderList[0];
+                    _this.photoList = res.data.orderList[0].orderPhoto;
+                    _this.category = res.data.orderList[0].Category;
+                    _this.downLoad = res.data.downLoadUrl;
+                    console.log(_this.photoList)
+                })
+            }
+        },
+        mounted:function () {
+            this.cartView();
+        }
+    }); 
+    
+    
+    function getURL(){  
+        var curWwwPath = window.document.location.href;
+       
+        //获取主机地址之后的目录，如： cis/website/meun.htm  
+        var pathName = window.document.location.pathname;  
+        var pathPort =window.document.location.port;
+        var pos = curWwwPath.indexOf(pathName); //获取主机地址，如： http://localhost:8080  
+        var localhostPaht = curWwwPath.substring(0, pos); //获取带"/"的项目名，如：/cis 
+        return localhostPaht;  
+          
+    }  
+</script>
